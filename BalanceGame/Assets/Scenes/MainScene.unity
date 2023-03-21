@@ -167,8 +167,9 @@ GameObject:
   - component: {fileID: 220294082}
   - component: {fileID: 220294081}
   - component: {fileID: 220294080}
+  - component: {fileID: 220294084}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,6 +254,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &220294084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220294079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7ec620c915aaa45b424ecab6890205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capsule: {fileID: 1357783699}
+  weight: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +459,7 @@ GameObject:
   - component: {fileID: 1357783697}
   - component: {fileID: 1357783696}
   - component: {fileID: 1357783695}
+  - component: {fileID: 1357783700}
   m_Layer: 0
   m_Name: Charactor Root
   m_TagString: Untagged
@@ -548,6 +564,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357783700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357783694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032ecc56d6a4b134fb5ee852f69dd073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+    fpCamera: {fileID: 1838968465}
+    fpRoot: {fileID: 0}
+    fpRig: {fileID: 0}
+    fpCamObject: {fileID: 0}
+    rBody: {fileID: 0}
+    anim: {fileID: 0}
+  _keyOption:
+    moveForward: 119
+    moveBackward: 115
+    moveLeft: 97
+    moveRight: 100
+    run: 304
+    jump: 32
+  _movementOption:
+    speed: 5
+    runningCoef: 1.5
+    jumpForce: 4.2
+    jumpCooldown: 0.6
+    maxJumpCount: 1
+    groundLayerMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    maxSlopeAngle: 50
+    slopeAccel: 1
+    gravity: -9.81
+    acceleration: 1
+  _cameraOption:
+    initialCamera: 0
+    rotationSpeed: 2
+    lookUpDegree: -60
+    lookDownDegree: 75
+  _animatorOption:
+    paramMoveX: Move X
+    paramMoveY: Move Y
+    paramMoveZ: Move Z
+  _state:
+    weight: 5
+    isCurrentFp: 0
+    isMoving: 0
+    isRunning: 0
+    isGrounded: 0
 --- !u!1 &1637807987
 GameObject:
   m_ObjectHideFlags: 0
