@@ -249,7 +249,7 @@ public class CharacterMainController : MonoBehaviour
     #endregion
 
     #region jump Methods
-
+ 
     /// 땅으로부터의 거리 체크 
     private void CheckDistanceFromGround()
     {
@@ -263,13 +263,13 @@ public class CharacterMainController : MonoBehaviour
         bool cast =
             Physics.SphereCast(ray, _groundCheckRadius, out var hit, rayDist, MoveOption.groundLayerMask);
 
-        _distFromGround = cast ? (hit.distance - 1f + _groundCheckRadius) : float.MaxValue;
+        _distFromGround = cast ? (hit.distance - 1.5f + _groundCheckRadius) : float.MaxValue;
         State.isGrounded = _distFromGround <= _groundCheckRadius + threshold;
     }
 
     private void Jump()
     {
-        if (!State.isGrounded) { Debug.Log("is not Grounded"); return; } // false면 점프 불가
+        if (!State.isGrounded) { return; } // false면 점프 불가
 
         if (Input.GetKeyDown(Key.jump))
         {
@@ -281,7 +281,7 @@ public class CharacterMainController : MonoBehaviour
 
     #endregion
 
-    #region fallingCheck
+    #region Fallend Methods
     private void DontFall()
     {
         if (transform.position.y < -10f)

@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638149956828600810
-    m_Hash: 2804562013
+      ticks: 638150202868345368
+    m_Hash: 816360361
   m_LockFileStatus:
     m_FilePath: C:/forGraduate/BalanceGame/BalanceGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638149956828648708
-    m_Hash: 1424868004
+      ticks: 638150202868385981
+    m_Hash: 484375929
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -216,7 +216,7 @@ m_ResolvedPackages:
   - name: com.unity.testtools.codecoverage
     version: 1.2.2
   - name: com.unity.settings-manager
-    version: 1.0.3
+    version: 2.0.1
   keywords: []
   registry:
     id: main
@@ -467,6 +467,76 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.2.5
     nextVersion: 
+- packageId: com.unity.polybrush@1.1.3
+  testable: 0
+  isDirectDependency: 1
+  version: 1.1.3
+  source: 1
+  resolvedPath: C:\forGraduate\BalanceGame\BalanceGame\Library\PackageCache\com.unity.polybrush@1.1.3
+  assetPath: Packages/com.unity.polybrush
+  name: com.unity.polybrush
+  displayName: Polybrush
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: Mesh painting, sculpting, and geo-scattering tool for Unity.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 1.0.0-preview.13
+    - 1.0.0-preview.16
+    - 1.0.0-preview.17
+    - 1.0.0
+    - 1.0.1-preview.1
+    - 1.0.1-preview.2
+    - 1.0.1
+    - 1.0.2-preview.1
+    - 1.0.2-preview.4
+    - 1.0.2
+    - 1.1.0-pre.1
+    - 1.1.2
+    - 1.1.3
+    compatible:
+    - 1.1.2
+    - 1.1.3
+    verified: 1.1.3
+  dependencies:
+  - name: com.unity.settings-manager
+    version: 2.0.1
+  resolvedDependencies:
+  - name: com.unity.settings-manager
+    version: 2.0.1
+  keywords:
+  - modeling
+  - sculpting
+  - push
+  - clay
+  - terrain
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637838195900000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/polybrush.git
+    revision: fe3755cd26ca8200a4843921343f3e957db611f8
+    path: 
+  unityLifecycle:
+    version: 1.1.2
+    nextVersion: 
 - packageId: com.unity.probuilder@5.0.6
   testable: 0
   isDirectDependency: 1
@@ -551,7 +621,7 @@ m_ResolvedPackages:
     version: 1.0.0
   resolvedDependencies:
   - name: com.unity.settings-manager
-    version: 1.0.3
+    version: 2.0.1
   - name: com.unity.modules.physics
     version: 1.0.0
   - name: com.unity.modules.imgui
@@ -3020,12 +3090,12 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.0.6
     nextVersion: 
-- packageId: com.unity.settings-manager@1.0.3
+- packageId: com.unity.settings-manager@2.0.1
   testable: 0
   isDirectDependency: 0
-  version: 1.0.3
+  version: 2.0.1
   source: 1
-  resolvedPath: C:\forGraduate\BalanceGame\BalanceGame\Library\PackageCache\com.unity.settings-manager@1.0.3
+  resolvedPath: C:\forGraduate\BalanceGame\BalanceGame\Library\PackageCache\com.unity.settings-manager@2.0.1
   assetPath: Packages/com.unity.settings-manager
   name: com.unity.settings-manager
   displayName: Settings Manager
@@ -3067,13 +3137,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637300096300000000
+  datePublishedTicks: 637744099390000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
-    url: git+https://github.com/Unity-Technologies/com.unity.settings-manager.git
-    revision: 473664ccba1496294b741cf169740a5d54b3d0b6
+    url: https://github.com/Unity-Technologies/com.unity.settings-manager.git
+    revision: 9b7c12d04ef880168151c127fd6b37b5931197dc
     path: 
   unityLifecycle:
     version: 1.0.3
@@ -3271,7 +3341,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
   - name: com.unity.settings-manager
-    version: 1.0.3
+    version: 2.0.1
   keywords:
   - test
   - coverage

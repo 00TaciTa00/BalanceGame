@@ -4,39 +4,49 @@ using UnityEngine;
 
 public class PlatformController : MonoBehaviour
 {
-    public Transform capsule; // Ä¸½¶ ¿ÀºêÁ§Æ®ÀÇ Transform ÄÄÆ÷³ÍÆ®
-    public float weight = 1.0f; // Ä¸½¶ ¿ÀºêÁ§Æ®ÀÇ ¹«°Ô
+    public Transform capsule; // Ä¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Transform ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    public float capsuleWeight = 1.0f; // Ä¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    private Vector3 centerOfMass; // ¹ßÆÇÀÇ ¹«°Ô Áß½É À§Ä¡
-    private Rigidbody rb; // ¹ßÆÇÀÇ Rigidbody ÄÄÆ÷³ÍÆ®
+    private Vector3 centerOfMass; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ ï¿½ï¿½Ä¡
+    private Rigidbody rb; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Rigidbody ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
     public float GetDistanceFromCenter(Transform capsule)
     {
         Vector3 distance = capsule.position - transform.position;
-        distance.y = 0f;
+        distance.y = 0.0f;
+
+        Debug.Log($"ìº¡ìŠ ë°œíŒ ê±°ë¦¬ :{distance}");
         return distance.magnitude;
+    }
+
+    public Vector3 GetCenterOfMass()
+    {
+        Bounds bounds = GetComponent<Collider>().bounds;
+        Vector3 CenterOfMass = new Vector3(bounds.center.x, bounds.min.y + (bounds.size.y * 0.5f), bounds.center.z);
+        Debug.Log($"ë°œíŒ ë¬´ê²Œ ì¤‘ì‹¬ : {CenterOfMass}");
+        return CenterOfMass;
     }
 
     private void UpdateCenterOfMass()
     {
-        float distance = GetDistanceFromCenter(capsule);
+        float distance = GetDistanceFromCenter(capsule); // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ cylinder ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 
-        float x = Mathf.Clamp(centerOfMass.x, -0.5f, 0.5f); // ±âÁ¸ÀÇ x°ªÀ» Å¬·¥ÇÎÇÕ´Ï´Ù.
-        float y = (1 - Mathf.Clamp01(distance / 0.5f)) * 0.5f; // °Å¸®¿¡ µû¸¥ y°ªÀ» °è»êÇÕ´Ï´Ù.
+        float x = Mathf.Clamp(centerOfMass.x, -0.5f, 0.5f); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ xï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+        float y = (1 - Mathf.Clamp01(distance / 0.5f)) * 0.5f; // ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ yï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         float z = 0f;
 
         centerOfMass = new Vector3(x, y, z);
 
         rb.centerOfMass = centerOfMass;
 
-        Debug.Log(centerOfMass); // test
+        Debug.Log($"{centerOfMass}, {rb.centerOfMass}"); // test
     }
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        centerOfMass = transform.InverseTransformPoint(capsule.position); // ¹ßÆÇÀÇ ·ÎÄÃ ÁÂÇ¥°è¿¡¼­ÀÇ Ä¸½¶ ¿ÀºêÁ§Æ® À§Ä¡
+        centerOfMass = transform.InverseTransformPoint(capsule.position); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½è¿¡ï¿½ï¿½ï¿½ï¿½ Ä¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
         rb.centerOfMass = centerOfMass;
     }
 
@@ -47,9 +57,10 @@ public class PlatformController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GetCenterOfMass();
         UpdateCenterOfMass();
 
-        float angle = Mathf.Clamp(centerOfMass.x / weight, -30f, 30f);
+        float angle = Mathf.Clamp(centerOfMass.x / capsuleWeight, -30f, 30f);
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
