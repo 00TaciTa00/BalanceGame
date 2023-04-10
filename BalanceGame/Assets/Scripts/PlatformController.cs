@@ -4,65 +4,32 @@ using UnityEngine;
 
 public class PlatformController : MonoBehaviour
 {
-    public Transform capsule; // ĸ�� ������Ʈ�� Transform ������Ʈ
-    public float capsuleWeight = 1.0f; // ĸ�� ������Ʈ�� ����
+    private Rigidbody rb;
 
-    private Vector3 centerOfMass; // ������ ���� �߽� ��ġ
-    private Rigidbody rb; // ������ Rigidbody ������Ʈ
-
-    public float GetDistanceFromCenter(Transform capsule)
-    {
-        Vector3 distance = capsule.position - transform.position;
-        distance.y = 0.0f;
-
-        Debug.Log($"캡슐 발판 거리 :{distance}");
-        return distance.magnitude;
-    }
-
-    public Vector3 GetCenterOfMass()
-    {
-        Bounds bounds = GetComponent<Collider>().bounds;
-        Vector3 CenterOfMass = new Vector3(bounds.center.x, bounds.min.y + (bounds.size.y * 0.5f), bounds.center.z);
-        Debug.Log($"발판 무게 중심 : {CenterOfMass}");
-        return CenterOfMass;
-    }
-
-    private void UpdateCenterOfMass()
-    {
-        float distance = GetDistanceFromCenter(capsule); // �÷��̾�� cylinder ������ �Ÿ�
-
-        float x = Mathf.Clamp(centerOfMass.x, -0.5f, 0.5f); // ������ x���� Ŭ�����մϴ�.
-        float y = (1 - Mathf.Clamp01(distance / 0.5f)) * 0.5f; // �Ÿ��� ���� y���� ����մϴ�.
-        float z = 0f;
-
-        centerOfMass = new Vector3(x, y, z);
-
-        rb.centerOfMass = centerOfMass;
-
-        Debug.Log($"{centerOfMass}, {rb.centerOfMass}"); // test
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        centerOfMass = transform.InverseTransformPoint(capsule.position); // ������ ���� ��ǥ�迡���� ĸ�� ������Ʈ ��ġ
-        rb.centerOfMass = centerOfMass;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
+        Vector3 collisionPoint = collision.contacts[0].point;
+        Vector3 center = transform.position;
+
+        // 충돌 지점과 발판 중심 간의 거리를 계산합니다.
+        float distance = Vector3.Distance(collisionPoint, center);
+        Debug.Log(distance);
+
+        // 발판을 중심으로 충돌 지점의 방향을 구합니다.
+        Vector3 direction = (collisionPoint - center).normalized;
+
+        // 물체의 질량과 발판과 충돌한 위치를 이용해 힘을 계산합니다.
+        float forceMagnitude = collision.rigidbody.mass * distance;
+        Vector3 force = direction * forceMagnitude;
+
+        // AddForceAtPosition() 메서드를 사용하여 발판을 기울입니다.
+        rb.AddForceAtPosition(force, collisionPoint);
     }
 
-    private void FixedUpdate()
-    {
-        GetCenterOfMass();
-        UpdateCenterOfMass();
 
-        float angle = Mathf.Clamp(centerOfMass.x / capsuleWeight, -30f, 30f);
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-    }
-
-    
 }

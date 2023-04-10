@@ -360,6 +360,7 @@
 "Assets/Scripts/CharactorMass.cs"
 "Assets/Scripts/GroundDistroy.cs"
 "Assets/Scripts/PlatformController.cs"
+"Assets/Scripts/PlatformRotate.cs"
 "Assets/Scripts/PlatformTrigger.cs"
 "Assets/Scripts/TilltedPlatform.cs"
 -langversion:9.0

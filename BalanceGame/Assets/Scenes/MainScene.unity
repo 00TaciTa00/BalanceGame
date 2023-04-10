@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 220294082}
   - component: {fileID: 220294081}
   - component: {fileID: 220294080}
-  - component: {fileID: 220294084}
   - component: {fileID: 220294085}
+  - component: {fileID: 220294084}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -179,7 +179,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 8a7ec945aeb805640b3dd1c584183d6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -541,7 +540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7022052782487636179, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7022052782487636179, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
       propertyPath: m_LocalPosition.z

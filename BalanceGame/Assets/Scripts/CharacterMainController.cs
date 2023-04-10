@@ -274,7 +274,6 @@ public class CharacterMainController : MonoBehaviour
         if (Input.GetKeyDown(Key.jump))
         {
             Com.rBody.AddForce(Vector3.up * MoveOption.jumpForce, ForceMode.VelocityChange);
-            Debug.Log("Jump Check");
         }
         
     }
