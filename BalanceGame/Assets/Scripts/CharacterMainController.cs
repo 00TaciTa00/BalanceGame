@@ -285,7 +285,7 @@ public class CharacterMainController : MonoBehaviour
     {
         if (transform.position.y < -10f)
         {
-            transform.position = new Vector3(25, 20, 0);
+            transform.position = new Vector3(0, 20, 0);
         }
     }
     #endregion
