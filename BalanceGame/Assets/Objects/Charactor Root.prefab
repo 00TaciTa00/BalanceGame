@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7022052782487636176}
   - component: {fileID: 7022052782487636175}
   - component: {fileID: 7022052782487636180}
+  - component: {fileID: 7896535576840462008}
+  - component: {fileID: -862264773949529074}
   m_Layer: 0
   m_Name: Charactor Root
   m_TagString: Untagged
@@ -132,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _components:
     fpCamera: {fileID: 7022052782572717265}
+    agent: {fileID: 0}
     fpRoot: {fileID: 0}
     fpRig: {fileID: 0}
     fpCamObject: {fileID: 0}
@@ -147,13 +150,13 @@ MonoBehaviour:
   _movementOption:
     speed: 5
     runningCoef: 1.5
-    jumpForce: 4.2
+    jumpForce: 1
     jumpCooldown: 0.6
-    maxJumpCount: 1
+    maxJumpCount: 0
     groundLayerMask:
       serializedVersion: 2
       m_Bits: 4294967295
-    maxSlopeAngle: 50
+    maxSlopeAngle: 75
     slopeAccel: 1
     gravity: -9.81
     acceleration: 1
@@ -172,6 +175,31 @@ MonoBehaviour:
     isMoving: 0
     isRunning: 0
     isGrounded: 0
+--- !u!114 &7896535576840462008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7022052782487636174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d0e441df82fbe4c8d49de7fc6e7132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-862264773949529074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7022052782487636174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26caaac7062048741ba3a7b51fffd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 1330555826120444742, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
 --- !u!1 &7022052782572717262
 GameObject:
   m_ObjectHideFlags: 0

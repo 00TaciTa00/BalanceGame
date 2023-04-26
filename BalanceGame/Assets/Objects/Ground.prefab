@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1942453419512409410}
   - component: {fileID: 1942453419512409411}
   - component: {fileID: 1942453419512409414}
+  - component: {fileID: 6136518362624344699}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9645b25ed8232b949b81494f4cdcf86f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,3 +116,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &6136518362624344699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942453419512409404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a679d4efea86a0047821059e583abee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

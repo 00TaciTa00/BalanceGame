@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using System;
 
 public class CharacterMainController : MonoBehaviour
 {
-    #region Á¤ÀÇ
+    #region ï¿½ï¿½ï¿½ï¿½
     public enum CameraType { FpCamera };
     [Serializable]
     public class Components
     {
         public Camera fpCamera;
+        public UnityEngine.AI.NavMeshAgent agent;
 
         [HideInInspector] public Transform fpRoot;
         [HideInInspector] public Transform fpRig;
@@ -34,48 +36,48 @@ public class CharacterMainController : MonoBehaviour
     [Serializable]
     public class MovementOption
     {
-        [Range(1f, 10f), Tooltip("ÀÌµ¿¼Óµµ")]
+        [Range(1f, 10f), Tooltip("ï¿½Ìµï¿½ï¿½Óµï¿½")]
         public float speed = 5f;
 
-        [Range(1f, 3f), Tooltip("´Þ¸®±â ÀÌµ¿¼Óµµ Áõ°¡ °è¼ö")]
+        [Range(1f, 3f), Tooltip("ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½")]
         public float runningCoef = 1.5f;
 
-        [Range(1f, 10f), Tooltip("Á¡ÇÁ °­µµ")]
-        public float jumpForce = 4.2f;
+        [Range(1f, 10f), Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
+        public float jumpForce = 0.1f;
 
-        [Range(0.0f, 2.0f), Tooltip("Á¡ÇÁ ÄðÅ¸ÀÓ")]
+        [Range(0.0f, 2.0f), Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½")]
         public float jumpCooldown = 0.6f;
 
-        [Range(0, 3), Tooltip("Á¡ÇÁ Çã¿ë È½¼ö")]
+        [Range(0, 3), Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È½ï¿½ï¿½")]
         public int maxJumpCount = 1;
 
-        [Tooltip("Áö¸éÀ¸·Î Ã¼Å©ÇÒ ·¹ÀÌ¾î ¼³Á¤")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½")]
         public LayerMask groundLayerMask = -1;
 
 
-        [Range(1f, 75f), Tooltip("µî¹Ý °¡´ÉÇÑ °æ»ç°¢")]
-        public float maxSlopeAngle = 50f;
+        [Range(1f, 75f), Tooltip("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ç°¢")]
+        public float maxSlopeAngle = 100f;
 
-        [Range(0f, 4f), Tooltip("°æ»ç·Î ÀÌµ¿¼Óµµ º¯È­À²(°¡¼Ó/°¨¼Ó)")]
+        [Range(0f, 4f), Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½È­ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½)")]
         public float slopeAccel = 1f;
 
-        [Range(-9.81f, 0f), Tooltip("Áß·Â")]
+        [Range(-9.81f, 0f), Tooltip("ï¿½ß·ï¿½")]
         public float gravity = -9.81f;
 
-        [Range(0f, 2f), Tooltip("°¡¼Ó")]
+        [Range(0f, 2f), Tooltip("ï¿½ï¿½ï¿½ï¿½")]
         public float acceleration = 1f;
     }
 
     [Serializable]
     public class CameraOption
     {
-        [Tooltip("°ÔÀÓ ½ÃÀÛ ½Ã Ä«¸Þ¶ó")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½")]
         public CameraType initialCamera;
-        [Range(1f, 10f), Tooltip("Ä«¸Þ¶ó »óÇÏÁÂ¿ì È¸Àü ¼Óµµ")]
+        [Range(1f, 10f), Tooltip("Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ È¸ï¿½ï¿½ ï¿½Óµï¿½")]
         public float rotationSpeed = 2f;
-        [Range(-90f, 0f), Tooltip("¿Ã·Á´Ùº¸±â Á¦ÇÑ °¢µµ")]
+        [Range(-90f, 0f), Tooltip("ï¿½Ã·ï¿½ï¿½Ùºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
         public float lookUpDegree = -60f;
-        [Range(0f, 75f), Tooltip("³»·Á´Ùº¸±â Á¦ÇÑ °¢µµ")]
+        [Range(0f, 75f), Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½Ùºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
         public float lookDownDegree = 75f;
     }
 
@@ -90,8 +92,8 @@ public class CharacterMainController : MonoBehaviour
     [Serializable]
     public class CharacterState
     {
-        [Range(1f, 10f), Tooltip("¹«°Ô")]
-        public float weight = 5f;
+        [Range(1f, 10f), Tooltip("ï¿½ï¿½ï¿½ï¿½")]
+        public float weight = 1f;
 
         public bool isCurrentFp;
         public bool isMoving;
@@ -100,7 +102,7 @@ public class CharacterMainController : MonoBehaviour
     }
     #endregion
 
-    #region ÇÊµå, ÇÁ·ÎÆÛÆ¼
+    #region ï¿½Êµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼
     public Components Com => _components;
     public KeyOption Key => _keyOption;
     public MovementOption MoveOption => _movementOption;
@@ -138,7 +140,7 @@ public class CharacterMainController : MonoBehaviour
     private void LogNotInitializedComponentError<T>(T component, string componentName) where T : Component
     {
         if (component == null)
-            Debug.LogError($"{componentName} ÄÄÆ÷³ÍÆ®¸¦ ÀÎ½ºÆåÅÍ¿¡ ³Ö¾îÁÖ¼¼¿ä");
+            Debug.LogError($"{componentName} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½Ö¾ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
     }
 
     #region Init Methods
@@ -158,7 +160,7 @@ public class CharacterMainController : MonoBehaviour
         // Rigidbody
         if (Com.rBody)
         {
-            // È¸ÀüÀº Æ®·£½ºÆûÀ» ÅëÇØ Á÷Á¢ Á¦¾îÇÒ °ÍÀÌ±â ¶§¹®¿¡ ¸®Áöµå¹Ùµð È¸ÀüÀº Á¦ÇÑ
+            // È¸ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ùµï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Com.rBody.constraints = RigidbodyConstraints.FreezeRotation;
         }
 
@@ -168,7 +170,7 @@ public class CharacterMainController : MonoBehaviour
         {
             cam.gameObject.SetActive(false);
         }
-        // ¼³Á¤ÇÑ Ä«¸Þ¶ó ÇÏ³ª¸¸ È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         State.isCurrentFp = (CamOption.initialCamera == CameraType.FpCamera);
         Com.fpCamObject.SetActive(State.isCurrentFp);
 
@@ -179,7 +181,7 @@ public class CharacterMainController : MonoBehaviour
     #endregion
 
     #region fp movement
-    /// Å°º¸µå ÀÔ·ÂÀ» ÅëÇØ ÇÊµå ÃÊ±âÈ­
+    /// Å°ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ ï¿½Ê±ï¿½È­
     private void SetValuesByKeyInput()
     {
         float h = 0f, v = 0f;
@@ -190,58 +192,70 @@ public class CharacterMainController : MonoBehaviour
         if (Input.GetKey(Key.moveRight)) h += 1.0f;
 
         Vector3 moveInput = new Vector3(h, 0f, v).normalized;
-        _moveDir = Vector3.Lerp(_moveDir, moveInput, MoveOption.acceleration); // °¡¼Ó, °¨¼Ó
+        _moveDir = Vector3.Lerp(_moveDir, moveInput, MoveOption.acceleration); // ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
         _rotation = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y"));
 
         State.isMoving = _moveDir.sqrMagnitude > 0.01f;
         State.isRunning = Input.GetKey(Key.run);
     }
 
-    /// <summary> 1ÀÎÄª È¸Àü </summary>
+    /// <summary> 1ï¿½ï¿½Äª È¸ï¿½ï¿½ </summary>
     private void Rotate()
     {
         float deltaCoef = Time.deltaTime * 50f;
 
-        // »óÇÏ : FP Rig È¸Àü
+        // ï¿½ï¿½ï¿½ï¿½ : FP Rig È¸ï¿½ï¿½
         float xRotPrev = Com.fpRig.localEulerAngles.x;
         float xRotNext = xRotPrev + _rotation.y
             * CamOption.rotationSpeed * deltaCoef;
 
         if (xRotNext > 180f){ xRotNext -= 360f; }
 
-        // ÁÂ¿ì : FP Root È¸Àü
+        // ï¿½Â¿ï¿½ : FP Root È¸ï¿½ï¿½
         float yRotPrev = Com.fpRoot.localEulerAngles.y;
         float yRotNext =
             yRotPrev + _rotation.x
             * CamOption.rotationSpeed * deltaCoef;
 
-        // »óÇÏ È¸Àü °¡´É ¿©ºÎ
+        // ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         bool xRotatable =
             CamOption.lookUpDegree < xRotNext &&
             CamOption.lookDownDegree > xRotNext;
 
-        // FP Rig »óÇÏ È¸Àü Àû¿ë
+        // FP Rig ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Com.fpRig.localEulerAngles = Vector3.right * (xRotatable ? xRotNext : xRotPrev);
 
-        // FP Root ÁÂ¿ì È¸Àü Àû¿ë
+        // FP Root ï¿½Â¿ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Com.fpRoot.localEulerAngles = Vector3.up * yRotNext;
     }
 
     private void Move()
     {
-        // ÀÌµ¿ÇÏÁö ¾Ê´Â °æ¿ì, ¹Ì²ô·³ ¹æÁö
+        // ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½, ï¿½Ì²ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        
         if (State.isMoving == false)
         {
             Com.rBody.velocity = new Vector3(0f, Com.rBody.velocity.y, 0f);
             return;
-        }
+        } 
 
-        // ½ÇÁ¦ ÀÌµ¿ º¤ÅÍ °è»ê
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         _worldMove = Com.fpRoot.TransformDirection(_moveDir);
         _worldMove *= (MoveOption.speed) * (State.isRunning ? MoveOption.runningCoef : 1f);
 
-        // YÃà ¼Óµµ´Â À¯ÁöÇÏ¸é¼­ XZÆò¸é ÀÌµ¿
+        // Yï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸é¼­ XZï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         Com.rBody.velocity = new Vector3(_worldMove.x, Com.rBody.velocity.y, _worldMove.z);
+        /*
+        // WASD ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Vector3 ï¿½ï¿½ï¿½ï¿½
+        Vector3 move = Vector3.zero;
+
+        // WASD ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ Vector3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        move.x = Input.GetAxis("Horizontal");
+        move.z = Input.GetAxis("Vertical");
+
+        // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ NavMesh Agentï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        agent.Move(move * Time.deltaTime);
+        */
     }
 
 
@@ -249,8 +263,8 @@ public class CharacterMainController : MonoBehaviour
     #endregion
 
     #region jump Methods
- 
-    /// ¶¥À¸·ÎºÎÅÍÀÇ °Å¸® Ã¼Å© 
+
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ Ã¼Å© 
     private void CheckDistanceFromGround()
     {
         Vector3 ro = transform.position + Vector3.up;
@@ -269,7 +283,7 @@ public class CharacterMainController : MonoBehaviour
 
     private void Jump()
     {
-        if (!State.isGrounded) { return; } // false¸é Á¡ÇÁ ºÒ°¡
+        if (!State.isGrounded) { return; } // falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 
         if (Input.GetKeyDown(Key.jump))
         {
@@ -280,15 +294,7 @@ public class CharacterMainController : MonoBehaviour
 
     #endregion
 
-    #region Fallend Methods
-    private void DontFall()
-    {
-        if (transform.position.y < -10f)
-        {
-            transform.position = new Vector3(0, 20, 0);
-        }
-    }
-    #endregion
+    
 
     // Start is called before the first frame update
     void Start()
@@ -304,7 +310,6 @@ public class CharacterMainController : MonoBehaviour
 
         Rotate();
         Move();
-        Jump();
-        DontFall();
+        //Jump();
     }
 }
