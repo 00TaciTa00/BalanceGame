@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1942453419512409410}
   - component: {fileID: 1942453419512409411}
   - component: {fileID: 1942453419512409414}
-  - component: {fileID: 1942453419512409413}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -116,16 +115,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
---- !u!114 &1942453419512409413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942453419512409404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fec7aadb126eeaa408ddde7fdd3d579e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceGravity: 0.05
