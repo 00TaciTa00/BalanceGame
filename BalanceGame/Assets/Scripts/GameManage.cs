@@ -31,11 +31,13 @@ public class GameManage : MonoBehaviour
         {
             RestartGame();
         }
+
+        Time.timeScale = 0f;
     }
 
     public void RestartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("EnterScene"); // 현재 씬을 다시 로드합니다.
+        UnityEngine.SceneManagement.SceneManager.LoadScene("EnterScene"); // 엔터 씬 호출
         Time.timeScale = 1f; // 게임 시간을 다시 시작합니다.
     }
     #endregion

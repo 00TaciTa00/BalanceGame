@@ -149,7 +149,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-125974
+  m_Name: pb_Mesh-11696
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -410,6 +410,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 456186390}
+    - target: {fileID: 9033085229459428648, guid: 0df8a1eaf71534a4180d64e5193ac274, type: 3}
+      propertyPath: targetScene
+      value: MainScene 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0df8a1eaf71534a4180d64e5193ac274, type: 3}
 --- !u!1 &101366252 stripped
@@ -441,7 +445,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-125988
+  m_Name: pb_Mesh-11710
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

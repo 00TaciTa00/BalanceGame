@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlatformControll : MonoBehaviour
 {
     private float time;
-    public float maxRot = 80f;
-    public float minRot = -80f;
+    public float maxRot = 60f;
+    public float minRot = -60f;
 
 
     // Start is called before the first frame update
@@ -27,6 +27,7 @@ public class PlatformControll : MonoBehaviour
             transform.rotation = Quaternion.identity;
         }
         
+        // 최대 기울기 제한
         if (rotX > maxRot)
         {
             rotX = maxRot;
