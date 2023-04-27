@@ -433,7 +433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9175dfcc1840443ab70bff4b59d6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: MainScene 3
 --- !u!1 &369997649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7022052782487636174, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
@@ -5920,6 +5919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1330555826120444742, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1968530182450819651, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6006,6 +6009,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
+--- !u!1 &1246622449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1330555826120444742, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
+  m_PrefabInstance: {fileID: 1246622448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1357783705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6261,6 +6269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -862264773949529074, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1246622449}
     - target: {fileID: 7022052782487636174, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
       propertyPath: m_Name
       value: Charactor Root

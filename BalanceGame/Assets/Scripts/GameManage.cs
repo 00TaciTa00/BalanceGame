@@ -10,7 +10,7 @@ public class GameManage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameOverUI.SetActive(false);
+       
     }
 
     // Update is called once per frame
@@ -32,13 +32,13 @@ public class GameManage : MonoBehaviour
             RestartGame();
         }
 
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void RestartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("EnterScene"); // 엔터 씬 호출
-        Time.timeScale = 1f; // 게임 시간을 다시 시작합니다.
+        //Time.timeScale = 1f; // 게임 시간을 다시 시작합니다.
     }
     #endregion
 }

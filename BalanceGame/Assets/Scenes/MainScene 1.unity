@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-20466
+  m_Name: pb_Mesh30866
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5464,7 +5464,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28430
+  m_Name: pb_Mesh30914
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5727,6 +5727,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
+--- !u!1 &1194896132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1330555826120444742, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
+  m_PrefabInstance: {fileID: 1032645749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1357783705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5821,7 +5826,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-20480
+  m_Name: pb_Mesh30892
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6016,7 +6021,7 @@ MonoBehaviour:
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -6141,6 +6146,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -862264773949529074, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1194896132}
     - target: {fileID: 7022052782487636174, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
       propertyPath: m_Name
       value: Charactor Root
