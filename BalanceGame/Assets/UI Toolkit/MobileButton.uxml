@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="controlbutton" style="height: 395px; flex-direction: row; width: 710px;">
+        <ui:Button text="&lt;" display-tooltip-when-elided="true" name="Left" style="flex-basis: 50%;" />
+        <ui:Button text="&gt;" display-tooltip-when-elided="true" name="Right" style="flex-wrap: nowrap; flex-basis: 50%;" />
+    </ui:VisualElement>
+</ui:UXML>

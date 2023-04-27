@@ -13,7 +13,7 @@ public class PlatformControll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = 5f;
+        time = 3f;
     }
 
     // Update is called once per frame
@@ -22,7 +22,6 @@ public class PlatformControll : MonoBehaviour
         float rotX = transform.localEulerAngles.x;
         float rotY = transform.localEulerAngles.y;
         float rotZ = transform.localEulerAngles.z;
-        print(transform.localEulerAngles);
 
         if (time > 0)
         {

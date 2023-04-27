@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - LocalNavMeshBuilder
     - NavMeshSourceTag
     - PlatformControll
+    - RockFalling
     - SceneManager
     - StatueMovement
     - UnityEngine.AI.NavMeshSurface
@@ -187,7 +188,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 8910}
     - Class: 114
-      Script: {instanceID: 24430}
+      Script: {instanceID: 27554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -308,6 +309,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 75
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
@@ -327,9 +332,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3910}
     - Class: 114
-      Script: {instanceID: 5164}
+      Script: {instanceID: 4832}
     - Class: 114
-      Script: {instanceID: 5542}
+      Script: {instanceID: 5164}
     - Class: 114
       Script: {instanceID: 5582}
     - Class: 114
@@ -351,8 +356,6 @@ ScriptsOnlyBuild:
     - Class: 136
       Script: {instanceID: 0}
     - Class: 157
-      Script: {instanceID: 0}
-    - Class: 195
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -389,6 +392,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 75
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
@@ -409,6 +416,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3522}
     - Class: 114
       Script: {instanceID: 3910}
+    - Class: 114
+      Script: {instanceID: 4832}
     - Class: 114
       Script: {instanceID: 5164}
     - Class: 114
@@ -946,7 +955,7 @@ ScriptsOnlyBuild:
     className: StatueAction
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 32868662d4f0890ee71ab0fa8e100d5a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RockFalling

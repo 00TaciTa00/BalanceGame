@@ -149,7 +149,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-11000
+  m_Name: pb_Mesh-1238
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -452,7 +452,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-11014
+  m_Name: pb_Mesh-1254
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5677,7 +5677,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44282
+  m_Name: pb_Mesh28942
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5910,6 +5910,10 @@ PrefabInstance:
       propertyPath: m_Tracked
       value: 
       objectReference: {fileID: 2075693723}
+    - target: {fileID: 7130203761527790445, guid: 619a8d92b0451204887c9b6b4d7f3193, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8596469206838483737, guid: 619a8d92b0451204887c9b6b4d7f3193, type: 3}
       propertyPath: m_Name
       value: monkstatue (1)
@@ -6034,7 +6038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1968530182450819651, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1968530182450819651, guid: 6822f6beddcf9fb41b56e09563b1e40e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6166,37 +6170,6 @@ MonoBehaviour:
   m_VoxelSize: 0.33333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &2115227258
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2115227259}
-  m_Layer: 0
-  m_Name: RockRespown
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2115227259
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115227258}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.832704, y: 32.844166, z: 4.292465}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2120328767
 GameObject:
   m_ObjectHideFlags: 0
@@ -6263,7 +6236,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1942453419329898115
 PrefabInstance:
@@ -6332,9 +6305,25 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1942453419512409411, guid: 1c2f58c87a5d2f2479e1f1e0ad9ef4b3, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942453419512409411, guid: 1c2f58c87a5d2f2479e1f1e0ad9ef4b3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942453419512409414, guid: 1c2f58c87a5d2f2479e1f1e0ad9ef4b3, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1942453419512409414, guid: 1c2f58c87a5d2f2479e1f1e0ad9ef4b3, type: 3}
       propertyPath: m_Constraints
       value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942453419512409414, guid: 1c2f58c87a5d2f2479e1f1e0ad9ef4b3, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c2f58c87a5d2f2479e1f1e0ad9ef4b3, type: 3}
@@ -6358,6 +6347,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7022052782487636175, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022052782487636175, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
@@ -6371,7 +6364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7022052782487636179, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 7022052782487636179, guid: afcf65be69074e24abcab14dd0aa0bc1, type: 3}
       propertyPath: m_LocalPosition.z
